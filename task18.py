@@ -1,6 +1,7 @@
 import re
 from pwn import *
-#change flag_end to number of questions
+from sys import argv
+
 s='/challenge/run'
 p=process(s)
 lvs=[b' UC ',b' C ',b' S ',b' TS ']
@@ -11,7 +12,7 @@ cat=[b'NUC',b'NATO',b'ACE',b'UFO']
 sub_cat=[]
 obj_cat=[]
 #flag of the ending
-flag_end=b'64'
+flag_end=argv[1].encode()
 #главный цикл
 for i in range(64):
     sub_cat.clear()
@@ -61,5 +62,5 @@ for i in range(64):
        flag=b'pwn'+p.recvuntil(b'}')
     else: p.sendline(string_to_send)
 #=====================================
-print('flag= ',flag.decode())
+print('flag = ',flag.decode())
 p.close()
