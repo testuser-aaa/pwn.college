@@ -14,7 +14,7 @@ obj_cat=[]
 #flag of the ending
 flag_end=argv[1].encode()
 #главный цикл
-for i in range(64):
+for i in range(int(argv[1])):
     sub_cat.clear()
     obj_cat.clear()
     tmp=p.recvuntil(b'Q ')
