@@ -12,18 +12,15 @@ sub_cat=[]
 obj_cat=[]
 #главный цикл
 for i in range(21):
-    print(i,'\n')
     sub_cat.clear()
     obj_cat.clear()
     tmp=p.recvuntil(b'Q ')
     qwe=p.recvline()
-    #print (qwe)
     x=0
     read=qwe.find(action[0])
     # READ==TRUE, if action=read!!!
     if (read>0): act=0
     else: act=1
-    print('act=',act,'\n')
 # в переменной act хранится действие        
     for x in range(3):
         sub_l=qwe.find(lvs[x])
