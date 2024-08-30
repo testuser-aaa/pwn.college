@@ -10,10 +10,10 @@ parser.add_argument('new_mac_addr',type=str,help="enter new mac_addr")
 args=parser.parse_args()
 
 def change_mac(iface,new_mac):
-    subprocess.run(["sudo", "ip", "link", "set", "dev", iface, "down"])
-    payload="sudo ip link set dev "+iface+" address "+ new_mac
+    subprocess.run(["ip", "link", "set", "dev", iface, "down"])
+    payload="ip link set dev "+iface+" address "+ new_mac
     subprocess.run(payload, shell=True)
-    subprocess.run(["sudo", "ip", "link", "set", "dev", iface, "up"])
+    subprocess.run(["ip", "link", "set", "dev", iface, "up"])
     #subprocess.run("ip link", shell=True)
     
 def get_mac(iface):
